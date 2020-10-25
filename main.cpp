@@ -1,11 +1,14 @@
 #include <fstream>
 #include <iostream>
 
-int main(int argc, char** argv) {
-    std::ofstream outputstream(argv[2]);
-    outputstream << "Hello, World!" << std::endl;
-    outputstream.close();
-    std::cout << "Hello and wrote sample output file." << std::endl;
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    ofstream output;
+    output.open(argv[3]);
+    if (!output.is_open())
+        cout << "unable to open file" << endl;
+    output<<"Hello World!"<<endl;
     return 0;
 }
 
