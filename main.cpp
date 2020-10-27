@@ -8,7 +8,7 @@
 #include "CityConnections.h"
 #include "RouteData.h"
 #include "DSString.h"
-#include "DSDLinkedlist.h"
+#include "DSDLinkedList.h"
 
 using namespace std;
 
@@ -38,11 +38,13 @@ int main(int argc, char* argv[]) {
         DSString i = "Houston";
         DSString j = "Chicago";
         a.addLocDest(g, b);
-        //a.print();
-        //a.addLocDest(g, c);
-        //a.addLocDest(h, d);
-        //a.addLocDest(g, e);
-        //a.addLocDest(h, f);
+        a.addLocDest(g, c);
+        a.addLocDest(h, d);
+        a.addLocDest(g, e);
+        a.addLocDest(h, f);
+
+        RouteData k(a.getConnectData(g, h));
+        k.print();
     }
     return 0;
 }

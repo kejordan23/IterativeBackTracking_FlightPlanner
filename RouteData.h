@@ -21,13 +21,11 @@ class RouteData{
     public:
         RouteData(): dest(""), cost(0), time(0), airline(""){};
         RouteData(DSString d, int c, int t, DSString a): dest(d), cost(c), time(t), airline(a){};
-        RouteData& operator=(const RouteData& obj){
-            if(this == &obj)
-                return *this;
-            dest = obj.dest;
-            cost = obj.cost;
-            time = obj.time;
-            airline = obj.airline;
+        RouteData(RouteData& b){
+            dest = b.dest;
+            cost = b.cost;
+            time = b.time;
+            airline = b.airline;
         };
         DSString& getDest(){ return dest;};
         int getCost(){ return cost;};

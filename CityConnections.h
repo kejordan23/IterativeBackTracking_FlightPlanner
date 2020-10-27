@@ -25,6 +25,7 @@ class CityConnections{
             connections.insertAtEnd(g);
         };
         DSString& getLoc(){ return firstLoc;};
+        int getSize(){ return connections.getSize();};
         RouteData& getRouteData(int i){
             return connections.getElement(i);
         };

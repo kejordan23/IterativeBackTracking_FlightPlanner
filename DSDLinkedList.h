@@ -54,21 +54,12 @@ class DSDLinkedList{
 //copy constructor
 template <typename T>
 DSDLinkedList<T>::DSDLinkedList(const DSDLinkedList<T>& list2){
+    front = nullptr;
+    end = nullptr;
+    size = 0;
     Node<T>* curr2 = list2.front;
-    for(int i=0; i<list2.size; i++){        //loops through list2 and copies each Node into this list
-        Node<T>* temp = curr2;
-        if(empty()){
-            front = temp;
-            end = temp;
-            size++;
-        }
-        else{
-            Node<T>* curr = end;
-            curr->next = temp;
-            temp->prev = curr;
-            end = temp;
-            size++;
-        }
+    while(curr2 != nullptr){
+        insertAtEnd(curr2->data);
         curr2 = curr2->next;
     }
 }
@@ -80,12 +71,7 @@ DSDLinkedList<T>& DSDLinkedList<T>::operator=(const DSDLinkedList<T>& list2){
     clear();                            //frees memory in this list before assigning new Nodes
     Node<T>* curr2 = list2.front;
     while(curr2 != nullptr){
-        if(empty()){
-            insertAtFront(curr2->data);
-        }
-        else{
-            insertAtEnd(curr2->data);
-        }
+        insertAtEnd(curr2->data);
         curr2 = curr2->next;
     }
     return *this;

@@ -9,7 +9,7 @@
 #include "CityConnections.h"
 #include "RouteData.h"
 
-TEST_CASE("AdjList class"){
+TEST_CASE ("AdjList class"){
     AdjList a;
     RouteData b("Austin", 98, 47, "Spirit");
     RouteData c("Austin", 98, 59, "American");
@@ -25,6 +25,7 @@ TEST_CASE("AdjList class"){
     a.addLocDest(h, d);
     a.addLocDest(g, e);
     a.addLocDest(h, f);
+
     SECTION("getFirstLoc(index)"){
         REQUIRE((a.getFirstLoc(0) == "Dallas"));
         REQUIRE((a.getFirstLoc(1) == "Dallas"));
@@ -33,12 +34,10 @@ TEST_CASE("AdjList class"){
         REQUIRE((a.getFirstLoc(4) == "Austin"));
     }
     SECTION("getConnectData(city, dest)"){
-        RouteData b = a.getConnectData(g, h);
-        RouteData c = a.getConnectData(h, i);
-        RouteData d = a.getConnectData(g, i);
-        REQUIRE((b.getDest() == "Austin"));
-        REQUIRE((b.getCost() == 98));
-        REQUIRE((b.getTime() == 47));
-        REQUIRE((b.getAirline() == "Spirit"));
+        RouteData k(a.getConnectData(g, h));
+        REQUIRE((k.getDest() == "Austin"));
+        REQUIRE((k.getCost() == 98));
+        CHECK((k.getTime() == 47));
+        REQUIRE((k.getAirline() == "Spirit"));
     }
 }

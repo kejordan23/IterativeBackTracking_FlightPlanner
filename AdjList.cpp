@@ -25,7 +25,7 @@ RouteData& AdjList::getConnectData(DSString& city, DSString& dest){
     }
     if(index1 != -1) {
         int index2 = -1;
-        for (int j = 0; j < list.getSize(); j++) {
+        for (int j = 0; j < list.getElement(index1).getSize(); j++) {
             if (list.getElement(index1).getRouteData(j).getDest() == dest)
                 index2 = j;
         }
