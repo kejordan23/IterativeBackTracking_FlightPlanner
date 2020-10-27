@@ -43,9 +43,9 @@ class DSDLinkedList{
         bool empty();
         T& getElement(int);
         int getSize();
-        void insertAtFront(T);
-        void insertAtEnd(T);
-        void insertAt(int, T);
+        void insertAtFront(T&);
+        void insertAtEnd(T&);
+        void insertAt(int, T&);
         void remove(int);
         void clear();
         void print(ofstream&);
@@ -111,7 +111,7 @@ int DSDLinkedList<T>::getSize(){
 }
 //insert functions at front, end, and a given location
 template <typename T>
-void DSDLinkedList<T>::insertAtFront(T val){
+void DSDLinkedList<T>::insertAtFront(T& val){
     Node<T>* temp = new Node<T>(val);
     if(empty()){
         front = end = temp;
@@ -127,7 +127,7 @@ void DSDLinkedList<T>::insertAtFront(T val){
     }
 }
 template <typename T>
-void DSDLinkedList<T>::insertAtEnd(T elem){
+void DSDLinkedList<T>::insertAtEnd(T& elem){
     Node<T>* temp = new Node<T>(elem);
     if(size == 0)
         front = end = temp;
@@ -143,7 +143,7 @@ void DSDLinkedList<T>::insertAtEnd(T elem){
     size++;
 }
 template <typename T>
-void DSDLinkedList<T>::insertAt(int loc, T val){    //starts from front Node and loops to find location before inserting
+void DSDLinkedList<T>::insertAt(int loc, T& val){    //starts from front Node and loops to find location before inserting
     if(size == 0){
         insertAtFront(val);
     }

@@ -19,6 +19,7 @@ class RouteData{
         int time;
         DSString airline;
     public:
+        RouteData(): dest(""), cost(0), time(0), airline(""){};
         RouteData(DSString d, int c, int t, DSString a): dest(d), cost(c), time(t), airline(a){};
         RouteData& operator=(const RouteData& obj){
             if(this == &obj)
@@ -32,6 +33,12 @@ class RouteData{
         int getCost(){ return cost;};
         int getTime(){ return time;};
         DSString& getAirline(){ return airline;};
+        void print(){
+            cout<<dest<<endl;
+            cout<<"$"<<cost<<endl;
+            cout<<time<<" min"<<endl;
+            cout<<airline<<endl;
+        };
 };
 
 #endif //INC_20F_FLT_PLN_ROUTEDATA_H

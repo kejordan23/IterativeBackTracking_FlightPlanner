@@ -15,10 +15,10 @@ using namespace std;
 
 class CityConnections{
     private:
-        DSDLinkedList<RouteData> connections;
+        DSDLinkedList<RouteData> connections = DSDLinkedList<RouteData>();
         DSString firstLoc;
     public:
-        CityConnections(DSString l, RouteData r): firstLoc(l){
+        CityConnections(DSString& l, RouteData& r): firstLoc(l){
             connections.insertAtEnd(r);
         };
         void addConnection(RouteData& g){
@@ -27,7 +27,13 @@ class CityConnections{
         DSString& getLoc(){ return firstLoc;};
         RouteData& getRouteData(int i){
             return connections.getElement(i);
-        }
+        };
+        void print(){
+            for(int i = 0; i< connections.getSize(); i++){
+                connections.getElement(i).print();
+                cout<<endl;
+            }
+        };
 };
 
 #endif //INC_20F_FLT_PLN_CITYCONNECTIONS_H

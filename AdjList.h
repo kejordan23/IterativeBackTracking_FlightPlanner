@@ -16,13 +16,13 @@ using namespace std;
 
 class AdjList{
     private:
-        DSDLinkedList<CityConnections> list;
+        DSDLinkedList<CityConnections> list = DSDLinkedList<CityConnections>();
     public:
-        AdjList();
+        AdjList(){};
         AdjList(ifstream&);
         DSString& getFirstLoc(int);
-        RouteData& getConnectData(int);
-        void addLocDest(DSString, RouteData&);
+        RouteData& getConnectData(DSString&, DSString&);
+        void addLocDest(DSString&, RouteData&);
         void print();
 };
 
