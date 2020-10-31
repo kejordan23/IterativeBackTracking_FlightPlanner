@@ -12,16 +12,21 @@
 #include "CityConnections.h"
 #include "RouteData.h"
 #include "AdjList.h"
+#include "Stack.h"
 
 using namespace std;
 
 class Manager{
     private:
+        char line[80];
         AdjList connections;
         AdjList plans;
+        bool fileCheck;
     public:
-        Manager(ifstream&, ofstream&);
+        Manager(ifstream&, ifstream&, ofstream&);
+        void splitLine();
         void makePlan(DSString&, DSString&, DSString&);
+        void storePath(Stack&);
         void print();
 };
 

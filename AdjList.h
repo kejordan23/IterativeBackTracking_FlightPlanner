@@ -19,7 +19,8 @@ class AdjList{
         DSDLinkedList<CityConnections> list = DSDLinkedList<CityConnections>();
     public:
         AdjList(){};
-        AdjList(ifstream&);
+        int getSize();
+        CityConnections& getConnection(DSString&);
         DSString& getFirstLoc(int);
         RouteData& getConnectData(DSString&, DSString&);
         void addLocDest(DSString&, RouteData&);

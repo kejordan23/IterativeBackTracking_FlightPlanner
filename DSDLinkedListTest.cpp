@@ -53,25 +53,34 @@ TEST_CASE ("DSDLinkedList class", "[int]"){
         REQUIRE((list3.getSize() == 10));
     }
     SECTION("insertAtFront()"){
-        list.insertAtFront(10);
-        list2.insertAtFront(200);
-        list3.insertAtFront(3);
+        int i = 10;
+        int j = 200;
+        int k = 3;
+        list.insertAtFront(i);
+        list2.insertAtFront(j);
+        list3.insertAtFront(k);
         REQUIRE((list.getElement(0) == 10));
         REQUIRE((list2.getElement(0) == 200));
         REQUIRE((list3.getElement(0) == 3));
     }
     SECTION("insertAtEnd()"){
-        list.insertAtEnd(10);
-        list2.insertAtEnd(200);
-        list3.insertAtEnd(3);
+        int i = 10;
+        int j = 200;
+        int k = 3;
+        list.insertAtEnd(i);
+        list2.insertAtEnd(j);
+        list3.insertAtEnd(k);
         REQUIRE((list.getElement(list.getSize()-1) == 10));
         REQUIRE((list2.getElement(list2.getSize()-1) == 200));
         REQUIRE((list3.getElement(list3.getSize()-1) == 3));
     }
     SECTION("insertAt()"){
-        list.insertAt(3, 10);
-        list2.insertAt(4, 200);
-        list3.insertAt(5, 3);
+        int i = 10;
+        int j = 200;
+        int k = 3;
+        list.insertAt(3, i);
+        list2.insertAt(4, j);
+        list3.insertAt(5, k);
         REQUIRE((list.getElement(3) == 10));
         REQUIRE((list2.getElement(4) == 200));
         REQUIRE((list3.getElement(5) == 3));
@@ -158,25 +167,34 @@ TEST_CASE("[DSStrings]"){
         REQUIRE((list3.getSize() == 3));
     }
     SECTION("insertAtFront()"){
-        list.insertAtFront("Hally");
-        list2.insertAtFront("giraffe");
-        list3.insertAtFront("sink");
+        DSString i = "Hally";
+        DSString j = "giraffe";
+        DSString k = "sink";
+        list.insertAtFront(i);
+        list2.insertAtFront(j);
+        list3.insertAtFront(k);
         REQUIRE((list.getElement(0) == "Hally"));
         REQUIRE((list2.getElement(0) == "giraffe"));
         REQUIRE((list3.getElement(0) == "sink"));
     }
     SECTION("insertAtEnd()"){
-        list.insertAtEnd("Hally");
-        list2.insertAtEnd("giraffe");
-        list3.insertAtEnd("sink");
+        DSString i = "Hally";
+        DSString j = "giraffe";
+        DSString k = "sink";
+        list.insertAtEnd(i);
+        list2.insertAtEnd(j);
+        list3.insertAtEnd(k);
         REQUIRE((list.getElement(list.getSize()-1) == "Hally"));
         REQUIRE((list2.getElement(list2.getSize()-1) == "giraffe"));
         REQUIRE((list3.getElement(list3.getSize()-1) == "sink"));
     }
     SECTION("insertAt()"){
-        list.insertAt(3, "Hally");
-        list2.insertAt(4, "giraffe");
-        list3.insertAt(1, "sink");
+        DSString i = "Hally";
+        DSString j = "giraffe";
+        DSString k = "sink";
+        list.insertAt(3, i);
+        list2.insertAt(4, j);
+        list3.insertAt(1, k);
         REQUIRE((list.getElement(3) == "Hally"));
         REQUIRE((list2.getElement(4) == "giraffe"));
         REQUIRE((list3.getElement(1) == "sink"));

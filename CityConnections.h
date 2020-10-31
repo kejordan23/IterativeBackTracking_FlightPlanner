@@ -17,10 +17,19 @@ class CityConnections{
     private:
         DSDLinkedList<RouteData> connections = DSDLinkedList<RouteData>();
         DSString firstLoc;
+        int iter;
     public:
-        CityConnections(DSString& l, RouteData& r): firstLoc(l){
+        CityConnections(DSString& l, RouteData& r): firstLoc(l), iter(0){
             connections.insertAtEnd(r);
         };
+        CityConnections(CityConnections& list2){
+            connections = list2.connections;
+            firstLoc = list2.firstLoc;
+            iter = list2.iter;
+        };
+        void setIter(int i){ iter = i;};
+        void moveIter(){ iter++;};
+        int getIter(){ return iter;};
         void addConnection(RouteData& g){
             connections.insertAtEnd(g);
         };

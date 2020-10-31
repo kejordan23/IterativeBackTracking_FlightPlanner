@@ -3,6 +3,7 @@
 //
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 #include "DSDLinkedList.h"
 #include "DSString.h"
 #include "CityConnections.h"
@@ -11,8 +12,16 @@
 
 using namespace std;
 
-AdjList::AdjList(ifstream&){
-
+int AdjList::getSize(){
+    return list.getSize();
+}
+CityConnections& AdjList::getConnection(DSString& city){
+    int index1 = -1;
+    for (int i = 0; i < list.getSize(); i++){
+        if(list.getElement(i).getLoc() == city)
+            index1 = i;
+    }
+    return list.getElement(index1);
 }
 DSString& AdjList::getFirstLoc(int i){
     return list.getElement(i).getLoc();
@@ -54,6 +63,7 @@ void AdjList::addLocDest(DSString& city, RouteData& dest){
 }
 void AdjList::print(){
     for(int i = 0; i< list.getSize(); i++){
+        cout<<getFirstLoc(i)<<endl;
         list.getElement(i).print();
         cout<<endl;
     }

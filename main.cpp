@@ -9,6 +9,7 @@
 #include "RouteData.h"
 #include "DSString.h"
 #include "DSDLinkedList.h"
+#include "Manager.h"
 
 using namespace std;
 
@@ -27,24 +28,7 @@ int main(int argc, char* argv[]) {
             cout << "unable to open file" << endl;
         output << "Hello World!" << endl;
 
-        AdjList a;
-        RouteData b("Austin", 98, 47, "Spirit");
-        RouteData c("Austin", 98, 59, "American");
-        RouteData d("Houston", 95, 39, "United");
-        RouteData e("Houston", 101, 51, "Spirit");
-        RouteData f("Chicago", 144, 192, "American");
-        DSString g = "Dallas";
-        DSString h = "Austin";
-        DSString i = "Houston";
-        DSString j = "Chicago";
-        a.addLocDest(g, b);
-        a.addLocDest(g, c);
-        a.addLocDest(h, d);
-        a.addLocDest(g, e);
-        a.addLocDest(h, f);
-
-        RouteData k(a.getConnectData(g, h));
-        k.print();
+        Manager m(input1, input2, output);
     }
     return 0;
 }

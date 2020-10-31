@@ -28,16 +28,13 @@ TEST_CASE ("AdjList class"){
 
     SECTION("getFirstLoc(index)"){
         REQUIRE((a.getFirstLoc(0) == "Dallas"));
-        REQUIRE((a.getFirstLoc(1) == "Dallas"));
-        REQUIRE((a.getFirstLoc(2) == "Austin"));
-        REQUIRE((a.getFirstLoc(3) == "Dallas"));
-        REQUIRE((a.getFirstLoc(4) == "Austin"));
+        REQUIRE((a.getFirstLoc(1) == "Austin"));
     }
     SECTION("getConnectData(city, dest)"){
         RouteData k(a.getConnectData(g, h));
         REQUIRE((k.getDest() == "Austin"));
         REQUIRE((k.getCost() == 98));
-        CHECK((k.getTime() == 47));
-        REQUIRE((k.getAirline() == "Spirit"));
+        REQUIRE((k.getTime() == 59));
+        REQUIRE((k.getAirline() == "American"));
     }
 }
