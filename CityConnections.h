@@ -19,6 +19,7 @@ class CityConnections{
         DSString firstLoc;
         int iter;
     public:
+        CityConnections(): firstLoc(""), iter(0){};
         CityConnections(DSString& l, RouteData& r): firstLoc(l), iter(0){
             connections.insertAtEnd(r);
         };
@@ -43,6 +44,7 @@ class CityConnections{
                 connections.getElement(i).print();
                 cout<<endl;
             }
+            cout<<iter<<endl;
         };
 };
 

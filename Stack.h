@@ -30,6 +30,11 @@ class Stack{
         RouteData& getElement(int i){ return stack.getElement(i);};
         void push(RouteData& r){ stack.insertAtEnd(r);};
         void pop(){ stack.remove(stack.getSize()-1);};
+        void print(){
+            for(int i = 0; i< stack.getSize(); i++){
+                stack.getElement(i).print();
+            }
+        };
 };
 
 #endif //INC_20F_FLT_PLN_STACK_H

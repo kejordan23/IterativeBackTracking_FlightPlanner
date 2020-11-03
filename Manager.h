@@ -20,14 +20,16 @@ class Manager{
     private:
         char line[80];
         AdjList connections;
-        AdjList plans;
+        DSDLinkedList<Stack> plans = DSDLinkedList<Stack>();
         bool fileCheck;
     public:
         Manager(ifstream&, ifstream&, ofstream&);
         void splitLine();
         void makePlan(DSString&, DSString&, DSString&);
-        void storePath(Stack&);
-        void print();
+        void storePath(Stack&, DSString&);
+        int compTime(Stack&);
+        int compPrice(Stack&);
+        void print(DSString&);
 };
 
 #endif //INC_20F_FLT_PLN_MANAGER_H
