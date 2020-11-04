@@ -1,6 +1,9 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/25/20.
+// AdjListTests.cpp
 //
+// This source file uses TDD CATCH tests to evaluate the AdjList class
 
 #include "catch.hpp"
 #include "DSDLinkedList.h"
@@ -26,6 +29,10 @@ TEST_CASE ("AdjList class"){
     a.addLocDest(g, e);
     a.addLocDest(h, f);
 
+    SECTION("getConnection(city)"){
+        REQUIRE((a.getConnection(g).getLoc() == "Dallas"));
+        REQUIRE((a.getConnection(h).getLoc() == "Austin"));
+    }
     SECTION("getFirstLoc(index)"){
         REQUIRE((a.getFirstLoc(0) == "Dallas"));
         REQUIRE((a.getFirstLoc(1) == "Austin"));
@@ -36,5 +43,16 @@ TEST_CASE ("AdjList class"){
         REQUIRE((k.getCost() == 98));
         REQUIRE((k.getTime() == 59));
         REQUIRE((k.getAirline() == "American"));
+    }
+    SECTION("addLocDest(city, dest)"){
+        AdjList z;
+        z.addLocDest(g, b);
+        z.addLocDest(g, e);
+        z.addLocDest(h, d);
+        REQUIRE((z.getFirstLoc(0) == "Dallas"));
+        REQUIRE((z.getConnection(g).getRouteData(0).getDest() == "Austin"));
+        REQUIRE((z.getConnection(g).getRouteData(1).getDest() == "Houston"));
+        REQUIRE((z.getFirstLoc(1) == "Austin"));
+        REQUIRE((z.getConnection(h).getRouteData(0).getDest() == "Houston"));
     }
 }

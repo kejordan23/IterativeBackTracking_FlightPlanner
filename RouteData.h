@@ -1,6 +1,9 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/25/20.
+// RouteData.h
 //
+// This header file declares and defines the RouteData class constructors and functions.
 
 #ifndef INC_20F_FLT_PLN_ROUTEDATA_H
 #define INC_20F_FLT_PLN_ROUTEDATA_H

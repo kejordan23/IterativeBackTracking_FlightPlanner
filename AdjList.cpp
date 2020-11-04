@@ -1,6 +1,10 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/25/20.
+// AdjList.cpp
 //
+// This source file defines all the constructors and functions for the AdjList class
+
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
@@ -15,7 +19,7 @@ using namespace std;
 int AdjList::getSize(){
     return list.getSize();
 }
-CityConnections& AdjList::getConnection(DSString& city){
+CityConnections& AdjList::getConnection(DSString& city){ //returns all of the city's connections
     int index1 = -1;
     for (int i = 0; i < list.getSize(); i++){
         if(list.getElement(i).getLoc() == city)
@@ -23,10 +27,10 @@ CityConnections& AdjList::getConnection(DSString& city){
     }
     return list.getElement(index1);
 }
-DSString& AdjList::getFirstLoc(int i){
+DSString& AdjList::getFirstLoc(int i){  //city of departure
     return list.getElement(i).getLoc();
 }
-RouteData& AdjList::getConnectData(DSString& city, DSString& dest){
+RouteData& AdjList::getConnectData(DSString& city, DSString& dest){ //returns route data
     int index1 = -1;
     for (int i = 0; i < list.getSize(); i++){
         if(list.getElement(i).getLoc() == city)
@@ -42,7 +46,7 @@ RouteData& AdjList::getConnectData(DSString& city, DSString& dest){
             return list.getElement(index1).getRouteData(index2);
     }
 }
-void AdjList::addLocDest(DSString& city, RouteData& dest){
+void AdjList::addLocDest(DSString& city, RouteData& dest){ //adds connection based on departure and arrival
     if(list.empty()){
         CityConnections c(city, dest);
         list.insertAtEnd(c);

@@ -1,6 +1,9 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/31/20.
+// Stack.h
 //
+// This header file declares and defines the Stack class constructors and functions.
 
 #ifndef INC_20F_FLT_PLN_STACK_H
 #define INC_20F_FLT_PLN_STACK_H
@@ -13,10 +16,10 @@
 #include "RouteData.h"
 
 using namespace std;
-
+template <typename T>
 class Stack{
     private:
-        DSDLinkedList<RouteData> stack = DSDLinkedList<RouteData>();
+        DSDLinkedList<T> stack = DSDLinkedList<T>();
     public:
         Stack(){};
         bool empty(){
@@ -26,13 +29,18 @@ class Stack{
                 return false;
         };
         int getSize(){ return stack.getSize();};
-        RouteData& top(){ return stack.getElement(stack.getSize()-1);};
-        RouteData& getElement(int i){ return stack.getElement(i);};
-        void push(RouteData& r){ stack.insertAtEnd(r);};
+        T& top(){ return stack.getElement(stack.getSize()-1);};
+        T& getElement(int i){ return stack.getElement(i);};
+        void push(T& r){ stack.insertAtEnd(r);};
         void pop(){ stack.remove(stack.getSize()-1);};
-        void print(){
+        void print(ofstream& output){
             for(int i = 0; i< stack.getSize(); i++){
-                stack.getElement(i).print();
+                if(i==0)
+                    output<<stack.getElement(i).getDest()<<" -> ";
+                else if(i<stack.getSize()-1)
+                    output<<stack.getElement(i).getDest()<<"("<<stack.getElement(i).getAirline()<<")"<<" -> ";
+                else
+                    output<<stack.getElement(i).getDest()<<"("<<stack.getElement(i).getAirline()<<")"<<".";
             }
         };
 };

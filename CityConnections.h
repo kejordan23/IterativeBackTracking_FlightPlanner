@@ -1,6 +1,9 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/25/20.
+// Stack.h
 //
+// This header file declares and defines the CityConnections class constructors and functions.
 
 #ifndef INC_20F_FLT_PLN_CITYCONNECTIONS_H
 #define INC_20F_FLT_PLN_CITYCONNECTIONS_H
@@ -28,7 +31,7 @@ class CityConnections{
             firstLoc = list2.firstLoc;
             iter = list2.iter;
         };
-        void setIter(int i){ iter = i;};
+        void setIter(int i){ iter = i;};        //iterative functions to move through connections
         void moveIter(){ iter++;};
         int getIter(){ return iter;};
         void addConnection(RouteData& g){

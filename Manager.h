@@ -1,6 +1,9 @@
+// Project 4: Flight Planner
+// Author: Kylie Jordan
 //
-// Created by Kylie Jordan on 10/25/20.
+// Manager.h
 //
+// This header file declares Manager class constructors and functions.
 
 #ifndef INC_20F_FLT_PLN_MANAGER_H
 #define INC_20F_FLT_PLN_MANAGER_H
@@ -20,16 +23,16 @@ class Manager{
     private:
         char line[80];
         AdjList connections;
-        DSDLinkedList<Stack> plans = DSDLinkedList<Stack>();
+        DSDLinkedList<Stack<RouteData>> plans = DSDLinkedList<Stack<RouteData>>();
         bool fileCheck;
     public:
         Manager(ifstream&, ifstream&, ofstream&);
-        void splitLine();
-        void makePlan(DSString&, DSString&, DSString&);
-        void storePath(Stack&, DSString&);
-        int compTime(Stack&);
-        int compPrice(Stack&);
-        void print(DSString&);
+        void splitLine(ofstream&);
+        void makePlan(DSString&, DSString&, DSString&, ofstream&);
+        void storePath(Stack<RouteData>&, DSString&);
+        int compTime(Stack<RouteData>&);
+        double compPrice(Stack<RouteData>&);
+        void print(ofstream&);
 };
 
 #endif //INC_20F_FLT_PLN_MANAGER_H
